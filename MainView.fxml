@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="MainController"
+            prefWidth="1000"
+            prefHeight="650">
+
+    <top>
+        <HBox alignment="CENTER_LEFT"
+              spacing="20"
+              styleClass="top-bar">
+
+            <padding>
+                <Insets top="18"
+                        right="25"
+                        bottom="18"
+                        left="25"/>
+            </padding>
+
+            <Label text="StudentSphere"
+                   styleClass="app-title"/>
+
+            <Label text="Student Management System"
+                   styleClass="app-subtitle"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="12"
+              prefWidth="210"
+              styleClass="side-menu">
+
+            <padding>
+                <Insets top="25"
+                        right="15"
+                        bottom="25"
+                        left="15"/>
+            </padding>
+
+            <Button text="Dashboard"
+                    onAction="#refreshDashboard"
+                    maxWidth="Infinity"/>
+
+            <Button text="Students"
+                    onAction="#openStudents"
+                    maxWidth="Infinity"/>
+
+            <Button text="Courses"
+                    onAction="#openCourses"
+                    maxWidth="Infinity"/>
+
+            <Button text="Enrollments"
+                    onAction="#openEnrollments"
+                    maxWidth="Infinity"/>
+
+            <Button text="Marks"
+                    onAction="#openMarks"
+                    maxWidth="Infinity"/>
+
+            <Button text="Reports"
+                    onAction="#openReports"
+                    maxWidth="Infinity"/>
+
+            <Button text="Save Data"
+                    onAction="#saveData"
+                    maxWidth="Infinity"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="20">
+
+            <padding>
+                <Insets top="25"
+                        right="25"
+                        bottom="25"
+                        left="25"/>
+            </padding>
+
+            <Label text="Dashboard"
+                   styleClass="section-title"/>
+
+            <GridPane hgap="20"
+                      vgap="20">
+
+                <VBox GridPane.columnIndex="0"
+                      GridPane.rowIndex="0"
+                      styleClass="stat-card">
+
+                    <Label text="Students"
+                           styleClass="stat-label"/>
+
+                    <Label fx:id="studentCountLabel"
+                           text="0"
+                           styleClass="stat-value"/>
+                </VBox>
+
+                <VBox GridPane.columnIndex="1"
+                      GridPane.rowIndex="0"
+                      styleClass="stat-card">
+
+                    <Label text="Courses"
+                           styleClass="stat-label"/>
+
+                    <Label fx:id="courseCountLabel"
+                           text="0"
+                           styleClass="stat-value"/>
+                </VBox>
+
+                <VBox GridPane.columnIndex="2"
+                      GridPane.rowIndex="0"
+                      styleClass="stat-card">
+
+                    <Label text="Enrollments"
+                           styleClass="stat-label"/>
+
+                    <Label fx:id="enrollmentCountLabel"
+                           text="0"
+                           styleClass="stat-value"/>
+                </VBox>
+
+                <VBox GridPane.columnIndex="0"
+                      GridPane.rowIndex="1"
+                      styleClass="stat-card">
+
+                    <Label text="Active"
+                           styleClass="stat-label"/>
+
+                    <Label fx:id="activeEnrollmentLabel"
+                           text="0"
+                           styleClass="stat-value"/>
+                </VBox>
+
+                <VBox GridPane.columnIndex="1"
+                      GridPane.rowIndex="1"
+                      styleClass="stat-card">
+
+                    <Label text="Completed"
+                           styleClass="stat-label"/>
+
+                    <Label fx:id="completedEnrollmentLabel"
+                           text="0"
+                           styleClass="stat-value"/>
+                </VBox>
+
+                <VBox GridPane.columnIndex="2"
+                      GridPane.rowIndex="1"
+                      styleClass="stat-card">
+
+                    <Label text="Dropped"
+                           styleClass="stat-label"/>
+
+                    <Label fx:id="droppedEnrollmentLabel"
+                           text="0"
+                           styleClass="stat-value"/>
+                </VBox>
+
+                <VBox GridPane.columnIndex="0"
+                      GridPane.rowIndex="2"
+                      GridPane.columnSpan="3"
+                      styleClass="stat-card-wide">
+
+                    <Label text="Overall Class Average"
+                           styleClass="stat-label"/>
+
+                    <Label fx:id="classAverageLabel"
+                           text="0.00%"
+                           styleClass="stat-value"/>
+                </VBox>
+            </GridPane>
+
+            <Label fx:id="statusLabel"
+                   text="Ready"
+                   styleClass="status-label"/>
+        </VBox>
+    </center>
+
+</BorderPane>
