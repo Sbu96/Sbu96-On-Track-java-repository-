@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="MarksController"
+            prefWidth="1050"
+            prefHeight="680">
+
+    <top>
+        <VBox spacing="8">
+
+            <padding>
+                <Insets top="20"
+                        right="25"
+                        bottom="15"
+                        left="25"/>
+            </padding>
+
+            <Label text="Marks Management"
+                   styleClass="section-title"/>
+
+            <Label text="Capture, update and review student assessment marks."
+                   styleClass="app-subtitle"/>
+
+        </VBox>
+    </top>
+
+    <left>
+        <VBox spacing="15"
+              prefWidth="340">
+
+            <padding>
+                <Insets top="20"
+                        right="20"
+                        bottom="20"
+                        left="25"/>
+            </padding>
+
+            <Label text="Mark Details"
+                   styleClass="form-title"/>
+
+            <GridPane hgap="10"
+                      vgap="12">
+
+                <Label text="Student:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="0"/>
+
+                <ComboBox fx:id="studentComboBox"
+                          promptText="Select student"
+                          prefWidth="200"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="0"/>
+
+                <Label text="Course:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="1"/>
+
+                <ComboBox fx:id="courseComboBox"
+                          promptText="Select course"
+                          prefWidth="200"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="1"/>
+
+                <Label text="Assessment #:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="2"/>
+
+                <TextField fx:id="assessmentNumberField"
+                           promptText="1"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="2"/>
+
+                <Label text="Mark:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="3"/>
+
+                <TextField fx:id="markField"
+                           promptText="75"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="3"/>
+
+            </GridPane>
+
+            <Button text="Add Mark"
+                    onAction="#addMark"
+                    maxWidth="Infinity"/>
+
+            <Button text="Update Mark"
+                    onAction="#updateMark"
+                    maxWidth="Infinity"/>
+
+            <Button text="Remove Mark"
+                    onAction="#removeMark"
+                    maxWidth="Infinity"/>
+
+            <Button text="Refresh Marks"
+                    onAction="#refreshMarks"
+                    maxWidth="Infinity"/>
+
+            <Button text="Clear Form"
+                    onAction="#clearForm"
+                    maxWidth="Infinity"/>
+
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="15">
+
+            <padding>
+                <Insets top="20"
+                        right="25"
+                        bottom="20"
+                        left="20"/>
+            </padding>
+
+            <Label text="Assessment Marks"
+                   styleClass="form-title"/>
+
+            <TableView fx:id="marksTable"
+                       prefHeight="400"
+                       VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn fx:id="assessmentColumn"
+                                 text="Assessment"
+                                 prefWidth="180"/>
+
+                    <TableColumn fx:id="markColumn"
+                                 text="Mark"
+                                 prefWidth="180"/>
+
+                </columns>
+
+            </TableView>
+
+            <HBox spacing="25">
+
+                <VBox spacing="5">
+
+                    <Label text="Average"/>
+
+                    <Label fx:id="averageLabel"
+                           text="0.00%"/>
+
+                </VBox>
+
+                <VBox spacing="5">
+
+                    <Label text="Grade"/>
+
+                    <Label fx:id="gradeLabel"
+                           text="-"/>
+
+                </VBox>
+
+                <VBox spacing="5">
+
+                    <Label text="Result"/>
+
+                    <Label fx:id="resultLabel"
+                           text="-"/>
+
+                </VBox>
+
+            </HBox>
+
+            <Label fx:id="statusLabel"
+                   text="Marks management ready."/>
+
+        </VBox>
+    </center>
+
+</BorderPane>
